@@ -74,6 +74,7 @@
 <script>
 export default {
   name: 'PayInput',
+  props: ['token'],
   data () {
     return {
       cardNum: '', // 卡号
@@ -91,9 +92,9 @@ export default {
       Msgs: ['正在检验用户信息...', '正在检查黑名单...', '正在扣款...', '已完成'], // 4个步骤的状态消息
       urls: ['/api/user/checkCardId/','/api/user/checkBlackList/','/api/user/generateOrder/'],
       params: {
-        '0': {cardId: ''},
-        '1': {cardId: ''},
-        '2': {cardId: '',moneyCost: ''}
+        '0': {cardId: '',token: ''},
+        '1': {cardId: '',token: ''},
+        '2': {cardId: '',moneyCost: '',token: ''}
         }
     }
   },
@@ -193,6 +194,13 @@ export default {
         this.$message.error('请输入16位的卡号');
       }
     }
+  },
+  mounted: function() {
+    console.log(this.token)
+    this.params['0']['token'] = this.token
+    this.params['1']['token'] = this.token
+    this.params['2']['token'] = this.token
+
   }
 }
 </script>

@@ -8,7 +8,7 @@
     <div class="mid">
       <Banner/>
       <div class='mid-box'>
-        <router-view></router-view>
+        <router-view :token='token'></router-view>
       </div>
     </div>
     <Footer/>
@@ -27,7 +27,7 @@ export default {
   name: 'Home',
   data () {
     return {
-     token: ''
+     token: '123'
     }
   },
   components: {
@@ -40,16 +40,10 @@ export default {
   methods : {
     getToken(val) {
       var self = this
-      // this.$axios.get('/token/auth/xxx/454556').then(function (value) {
-      //    self.token = value.data.result
-      //    console.log(token)
-      //   }).catch( function(e){
-      //       console.log(e)
-      //   })
       var request = require('request'),
       username = "libtop",
       password = "libtopjnu42",
-      url = "https://icbcetc.ml/auth/xxx/9999999",
+      url = "https://icbcetc.ml/auth/xxx/9999999999999",
       auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
 
       request({
@@ -58,11 +52,10 @@ export default {
           "Authorization": auth
         }
       },function(error, response, body){
-        
-        console.log(response)
-        console.log(body)
-        self.token = response.data.result
-        console.log(token)
+        var parseBody = JSON.parse(body)
+        self.token = parseBody.result
+        console.log("token aggre:" + token)
+        console.log(parseBody.result)
       }
       )
     },

@@ -78,7 +78,11 @@
           layout="total, prev, pager, next, jumper"
           :total="currentTotal">
         </el-pagination>
-        <el-button icon="el-icon-search" circle class="refresh-button"></el-button>
+        <el-button icon="el-icon-refresh-right" primary
+        size='mini'
+        class="refresh-button" 
+        @click='getBlackList'></el-button>
+        <!-- {{}} -->
       </div>
 
     </div>
@@ -87,6 +91,7 @@
 
 <script>
 export default {
+  props: ["token"],
   data () {
     // 测试数据
     return {
@@ -95,7 +100,7 @@ export default {
       pageSize: 5,
       currentTotal: 0,
       pictLoading: false,
-      token: ''
+      tokens: {token: ''}
     }
   },
   filters: {
@@ -112,17 +117,8 @@ export default {
     }
   },
   mounted: function(){
-    // var self = this
-    //   this.$axios.get('/api/blacklist/getAll/').then( function(res) {
-    //     if (res.data.code === 1) {
-    //       self.tableData = res.data.result.blacklists
-    //       self.currentTotal = res.data.result.num
-    //       self.pageSize = 5
-    //     }
-    //   })
-    //     .catch(function (error) {
-    //       console.log(error)
-    //     })
+    console.log(this.token)
+    this.tokens.token = this.token
     this.getBlackList()
   },
   methods: {
@@ -136,8 +132,11 @@ export default {
       // console.log(`当前页: ${val}`)
     },
     getBlackList: function() {
+      console.log(1);
       var self = this
-      this.$axios.get('/api/blacklist/getAll/').then( function(res) {
+      this.$axios.get('/api/blacklist/getAll/',{
+          params: self.tokens
+        }).then( function(res) {
         if (res.data.code === 1) {
           self.tableData = res.data.result.blacklists
           self.currentTotal = res.data.result.num
@@ -200,7 +199,11 @@ export default {
   /* 刷新 */
   .refresh-button{
     position: absolute;
-    /* right: 0; */
+    right: 150px;
+    bottom: 2px;
+    opacity: 0.7;
+    border-radius: 5px;
+
 
   }
 
