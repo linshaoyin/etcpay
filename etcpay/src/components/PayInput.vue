@@ -80,7 +80,7 @@ export default {
       moneyCost: '', // 消费金额
       isPayDialogVisible: false, // 是否支付弹窗
       payingVisible: false, // 支付过程弹窗
-      resultDialogVisible: true, // 结果弹窗
+      resultDialogVisible: false, // 结果弹窗
       // resultDialogTitle: '支付成功',
       active: 0, // 进行到第几个步骤检查
       balance: 0, // 余额

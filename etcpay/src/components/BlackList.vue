@@ -78,7 +78,7 @@
           layout="total, prev, pager, next, jumper"
           :total="currentTotal">
         </el-pagination>
-        <!-- <el-button icon="el-icon-search" circle class=""></el-button> -->
+        <el-button icon="el-icon-search" circle class="refresh-button"></el-button>
       </div>
 
     </div>
@@ -94,7 +94,8 @@ export default {
       currentPage: 1,
       pageSize: 5,
       currentTotal: 0,
-      pictLoading: false
+      pictLoading: false,
+      token: ''
     }
   },
   filters: {
@@ -125,6 +126,7 @@ export default {
     this.getBlackList()
   },
   methods: {
+   
     handleSizeChange (val) {
       this.pageSize = val
       // console.log(`每页 ${val} 条`)
@@ -193,6 +195,13 @@ export default {
     left: 0;
     right: 0;
     margin: auto;
+  }
+
+  /* 刷新 */
+  .refresh-button{
+    position: absolute;
+    /* right: 0; */
+
   }
 
 </style>

@@ -17,6 +17,14 @@ module.exports = {
         pathRewrite:{
           '^/api': 'http://10.10.1.198:8005'
         }
+      },
+      '/token':{
+        target: 'https://icbcetc.ml',
+        secure: false, 
+        changeOrigin: true,
+        pathRewrite:{
+          '^/toekn': 'https://icbcetc.ml'
+        }
       }
     },
 
