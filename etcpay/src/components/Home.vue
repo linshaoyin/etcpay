@@ -27,7 +27,7 @@ export default {
   name: 'Home',
   data () {
     return {
-     token: '123'
+     token: ''
     }
   },
   components: {
@@ -54,13 +54,13 @@ export default {
       },function(error, response, body){
         var parseBody = JSON.parse(body)
         self.token = parseBody.result
-        console.log("token aggre:" + token)
-        console.log(parseBody.result)
+        console.log("token aggre:" + self.token)
+        console.log("parsebody: "+parseBody.result)
       }
       )
     },
   },
-  mounted() {
+  mouted() {
   this.getToken()
   }
 }
