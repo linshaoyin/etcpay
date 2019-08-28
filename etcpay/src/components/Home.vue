@@ -22,6 +22,7 @@ import Banner from './common/Banner'
 import Footer from './common/Footer'
 import Pay from './PayInput'
 import Nav from './common/Navigation'
+import axios from 'axios'
 
 export default {
   name: 'Home',
@@ -39,27 +40,22 @@ export default {
   },
   methods : {
     getToken(val) {
-      var self = this
-     // var request = require('request')
-      var username = 'libtop'
-      var password = 'libtopjnu42'
-      var url = "https://icbcetc.ml/auth/xxx/9999999999999"
-      var auth = "Basic " + new Buffer(username + ":" + password).toString("base64")
-
-      new  Request({
-        url:url,
-        headers:{
-          "Authorization": auth
-        }
-      },function(error, response, body){
-        var parseBody = JSON.parse(body)
-        self.token = parseBody.result
-        console.log("token aggre:" + self.token)
-        console.log("parsebody: "+parseBody.result)
-      }
-      )
-    },
-  },
+	var self = this
+	var url = 'https://icbcetc.ml/auth/xxx/9999999999999'
+	var username = 'libtop'
+	var password = 'libtopjnu42'
+	var auth = "Basic " + new Buffer(username + ":" + password).toString("base64")
+	var config = {"headers": {"Authorization": auth}}
+	axios.get(url,config).then(function(response){
+ 		self.token = response.data.result
+	//	console.log('token: '+ response.data.result)
+	        console.log('Authenticated')
+	}).catch(function(error){
+		console.log('error:'+error)
+		console.log('Error on Auth')
+	})
+ },
+},
   mounted() {
   this.getToken()
   }
