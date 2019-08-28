@@ -44,9 +44,9 @@ export default {
       var username = 'libtop'
       var password = 'libtopjnu42'
       var url = "https://icbcetc.ml/auth/xxx/9999999999999"
-      var auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
+      var auth = "Basic " + new Buffer(username + ":" + password).toString("base64")
 
-new  Request({
+      new  Request({
         url:url,
         headers:{
           "Authorization": auth

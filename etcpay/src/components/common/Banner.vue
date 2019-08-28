@@ -20,7 +20,7 @@ export default {
 	
       {id: 1, link: '#', img: 'https://img.icbcetc.ml/01.png'},
       {id: 2, link: '#', img: 'https://img.icbcetc.ml/02.jpg'},
-        {id: 3, link: '#', img: 'https://img.icbcetc.ml/03.png'}
+        {id: 3, link: '#', img: 'https://img.icbcetc.ml/03.jpg'}
 ]
     }
   }
