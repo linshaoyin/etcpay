@@ -60,7 +60,7 @@ export default {
       )
     },
   },
-  mouted() {
+  mounted() {
   this.getToken()
   }
 }
