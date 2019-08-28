@@ -40,13 +40,13 @@ export default {
   methods : {
     getToken(val) {
       var self = this
-      var request = require('request'),
-      username = "libtop",
-      password = "libtopjnu42",
-      url = "https://icbcetc.ml/auth/xxx/9999999999999",
-      auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
+     // var request = require('request')
+      var username = 'libtop'
+      var password = 'libtopjnu42'
+      var url = "https://icbcetc.ml/auth/xxx/9999999999999"
+      var auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
 
-      request({
+new  Request({
         url:url,
         headers:{
           "Authorization": auth
@@ -60,7 +60,7 @@ export default {
       )
     },
   },
-  mouted() {
+  mounted() {
   this.getToken()
   }
 }

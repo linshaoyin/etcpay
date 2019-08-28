@@ -8,9 +8,24 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
+//let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+//var webpack = require('webpack')
 
 
 module.exports = {
+ //   plugins: [new BundleAnalyzerPlugin({analyzerHost: '0.0.0.0'}),
+//	new webpack.DefinePlugin({
+//      'process.env.NODE_ENV': JSON.stringify('production')
+//    })	
+//],
+  externals: {
+    'vue': 'Vue',
+    'element-ui': 'ELEMENT',
+    'vue-router': 'VueRouter',
+    'request': 'Request',
+
+  },
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'

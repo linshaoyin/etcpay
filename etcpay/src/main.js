@@ -11,7 +11,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import Router from 'vue-router'
 import request from 'request'
 // 调用插件
-Vue.use(ElementUI)
+//Vue.use(ElementUI)
 Vue.config.productionTip = false
 // 把axios挂载到vue上
 Vue.prototype.$axios = axios

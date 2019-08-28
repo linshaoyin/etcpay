@@ -14,10 +14,14 @@ export default {
   data () {
     return {
       banner_list: [
-        {id: 1, link: '#', img: '/static/banner/01.png'},
-        {id: 2, link: '#', img: '/static/banner/02.jpg'},
-        {id: 3, link: '#', img: '/static/banner/03.png'}
-      ]
+//        {id: 1, link: '#', img: '/static/banner/01.png'},
+//      {id: 2, link: '#', img: '/static/banner/02.jpg'},
+//        {id: 3, link: '#', img: '/static/banner/03.png'}
+	
+      {id: 1, link: '#', img: 'https://img.icbcetc.ml/01.png'},
+      {id: 2, link: '#', img: 'https://img.icbcetc.ml/02.jpg'},
+        {id: 3, link: '#', img: 'https://img.icbcetc.ml/03.png'}
+]
     }
   }
 }

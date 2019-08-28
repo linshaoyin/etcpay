@@ -187,6 +187,11 @@ export default {
         this.params[2]["cardId"] = this.cardNum
         this.params[2]["moneyCost"] = this.moneyCost
 
+	console.log(this.token)
+        this.params[0]['token'] = this.token
+        this.params[1]['token'] = this.token
+        this.params[2]['token'] = this.token
+
         console.log(this.params)
 
         this.goSteps() // 向后台发出第一步检测
@@ -197,9 +202,9 @@ export default {
   },
   mounted: function() {
     console.log(this.token)
-    this.params['0']['token'] = this.token
-    this.params['1']['token'] = this.token
-    this.params['2']['token'] = this.token
+    this.params[0]['token'] = this.token
+    this.params[1]['token'] = this.token
+    this.params[2]['token'] = this.token
 
   }
 }
